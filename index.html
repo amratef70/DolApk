@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تحميل التطبيق من متجر Play</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #1a1a1a, #2a2a72);
+      font-family: "Tajawal", sans-serif;
+      color: #fff;
+      text-align: center;
+      padding: 50px 20px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(6px);
+      transition: 0.3s;
+    }
+
+    .container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .app-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .app-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 20%;
+      margin-right: 15px;
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+    }
+
+    .app-title {
+      text-align: left;
+    }
+
+    .app-title h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .app-title p {
+      margin: 2px 0 0 0;
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    .instruction-box {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 15px;
+      margin-bottom: 25px;
+      font-size: 16px;
+      line-height: 1.8;
+      box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.1);
+      text-align: right;
+      color: #fff;
+    }
+
+    .instruction-box b {
+      color: #ffd700;
+    }
+
+    .download-btn {
+      display: inline-block;
+      background: linear-gradient(45deg, #34A853, #0F9D58);
+      color: white;
+      padding: 15px 35px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 5px 20px rgba(15, 157, 88, 0.5);
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .download-btn:hover {
+      background: linear-gradient(45deg, #0F9D58, #34A853);
+      transform: scale(1.07);
+      box-shadow: 0 8px 30px rgba(15, 157, 88, 0.7);
+    }
+
+    .link-box {
+      background: rgba(0,0,0,0.2);
+      border-radius: 10px;
+      padding: 15px;
+      font-size: 14px;
+      color: #fff;
+      overflow-wrap: break-word;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+      margin-top: 15px;
+    }
+
+    footer {
+      margin-top: 35px;
+      font-size: 14px;
+      color: #bbb;
+    }
+
+    @media (max-width: 600px) {
+      .download-btn {
+        font-size: 16px;
+        padding: 12px 25px;
+      }
+      .app-header {
+        flex-direction: column;
+      }
+      .app-title {
+        text-align: center;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- محاكاة أيقونة متجر Play الأصلية واسم التطبيق -->
+    <div class="app-header">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="متجر Play" class="app-icon">
+      <div class="app-title">
+        <h2>تطبيق تجريبي</h2>
+        <p>متوفر على متجر Play</p>
+      </div>
+    </div>
+
+    <div class="instruction-box">
+      ⚡ <b>نصيحة مهمة لتثبيت التطبيق بأمان:</b><br>
+      1️⃣ بعد اكتمال التحميل، <b>قم بإيقاف الإنترنت   . </b>
+       (Wi-Fi أو بيانات الجوال).<br>
+      2️⃣ افتح الملف مباشرة من إشعارات التنزيل أو من مركز الملفات.<br>
+      3️⃣ اضغط "تثبيت" واتبع التعليمات كما في متجر Play.<br>
+      ✨ بهذه الطريقة سيُثبت التطبيق بسرعة وأمان، من متجر Play نفسه.
+    </div>
+
+    <!-- زر التحميل يبدأ التحميل مباشرة من الرابط -->
+    <a href="https://github.com/amratef70/Apk/releases/download/v1.0.0/ready.apk" 
+       class="download-btn" download>
+       ⬇️ تحميل التطبيق الآن
+    </a>
+
+    <!-- صندوق الرابط الجذاب -->
+    <div class="link-box">
+      الرابط الرسمي للتطبيق:<br>
+      <b>Google play</b>
+    </div>
+
+    <footer>
+      🚀 إصدار مستقر وآمن 100% – موصى به من مصادر موثوقة
+    </footer>
+  </div>
+
+</body>
+</html>
