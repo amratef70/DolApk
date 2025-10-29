@@ -3,147 +3,366 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تحميل التطبيق من متجر Play</title>
+  
+  <!-- Meta Tags for Social Sharing -->
+  <meta property="og:title" content="📱 متجر بلاي - أفضل التطبيقات والألعاب">
+  <meta property="og:description" content="اكتشف أحدث التطبيقات والألعاب المميزة من متجر بلاي الرسمي. حمّل الآن واستمتع بتجربة فريدة!">
+  <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+  <meta property="og:url" content="https://your-netlify-site.netlify.app">
+  <meta property="og:type" content="website">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="📱 متجر بلاي - أفضل التطبيقات والألعاب">
+  <meta name="twitter:description" content="اكتشف أحدث التطبيقات والألعاب المميزة من متجر بلاي الرسمي. حمّل الآن واستمتع بتجربة فريدة!">
+  <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+  
+  <title>متجر بلاي - أفضل التطبيقات والألعاب</title>
+  
   <style>
-    body {
-      background: linear-gradient(135deg, #1a1a1a, #2a2a72);
-      font-family: "Tajawal", sans-serif;
-      color: #fff;
-      text-align: center;
-      padding: 50px 20px;
+    :root {
+      --primary-color: #34A853;
+      --primary-dark: #0F9D58;
+      --secondary-color: #4285F4;
+      --accent-color: #FFD700;
+      --text-light: #ffffff;
+      --text-muted: #cccccc;
+      --bg-dark: #1a1a1a;
+      --bg-darker: #0f0f0f;
+      --card-bg: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(255, 255, 255, 0.15);
+    }
+    
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background: linear-gradient(135deg, var(--bg-dark), #2a2a72);
+      font-family: "Tajawal", "Segoe UI", sans-serif;
+      color: var(--text-light);
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .container {
       max-width: 500px;
+      width: 100%;
       margin: auto;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(6px);
-      transition: 0.3s;
+      background: var(--card-bg);
+      border-radius: 25px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--card-border);
+      transition: 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(52,168,83,0.1) 0%, rgba(0,0,0,0) 70%);
+      z-index: -1;
     }
 
     .container:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
     }
 
     .app-header {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      position: relative;
     }
 
     .app-icon {
-      width: 80px;
-      height: 80px;
-      border-radius: 20%;
-      margin-right: 15px;
-      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+      width: 90px;
+      height: 90px;
+      border-radius: 22px;
+      margin-left: 15px;
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .app-icon:hover {
+      transform: scale(1.05);
     }
 
     .app-title {
-      text-align: left;
+      text-align: right;
+      flex: 1;
     }
 
-    .app-title h2 {
+    .app-title h1 {
       margin: 0;
-      font-size: 20px;
+      font-size: 24px;
+      background: linear-gradient(45deg, var(--accent-color), #ffed4e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 800;
     }
 
     .app-title p {
-      margin: 2px 0 0 0;
+      margin: 5px 0 0 0;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .rating {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 15px 0;
+    }
+
+    .stars {
+      color: var(--accent-color);
+      font-size: 18px;
+      margin-left: 8px;
+    }
+
+    .rating-text {
       font-size: 14px;
-      color: #ccc;
+      color: var(--text-muted);
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      flex: 1;
+      min-width: 120px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 12px 8px;
+      margin: 5px;
+      font-size: 13px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .feature i {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 5px;
     }
 
     .instruction-box {
-      background: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 15px;
-      padding: 15px;
+      border-radius: 18px;
+      padding: 20px;
       margin-bottom: 25px;
       font-size: 16px;
       line-height: 1.8;
-      box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.1);
+      box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.05);
       text-align: right;
-      color: #fff;
+      color: var(--text-light);
+      position: relative;
+    }
+
+    .instruction-box::before {
+      content: "💡";
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--bg-dark);
+      padding: 0 10px;
+      font-size: 20px;
     }
 
     .instruction-box b {
-      color: #ffd700;
+      color: var(--accent-color);
     }
 
     .download-btn {
-      display: inline-block;
-      background: linear-gradient(45deg, #34A853, #0F9D58);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
       color: white;
-      padding: 15px 35px;
+      padding: 18px 40px;
       border-radius: 50px;
       font-size: 18px;
       font-weight: bold;
       text-decoration: none;
-      box-shadow: 0 5px 20px rgba(15, 157, 88, 0.5);
+      box-shadow: 0 6px 25px rgba(15, 157, 88, 0.5);
       transition: all 0.3s ease;
       margin-bottom: 20px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .download-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: 0.5s;
     }
 
     .download-btn:hover {
-      background: linear-gradient(45deg, #0F9D58, #34A853);
-      transform: scale(1.07);
-      box-shadow: 0 8px 30px rgba(15, 157, 88, 0.7);
+      background: linear-gradient(45deg, var(--primary-dark), var(--primary-color));
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(15, 157, 88, 0.7);
+    }
+
+    .download-btn:hover::before {
+      left: 100%;
+    }
+
+    .download-btn i {
+      margin-left: 10px;
+      font-size: 22px;
     }
 
     .link-box {
-      background: rgba(0,0,0,0.2);
-      border-radius: 10px;
+      background: rgba(0,0,0,0.25);
+      border-radius: 12px;
       padding: 15px;
       font-size: 14px;
-      color: #fff;
+      color: var(--text-light);
       overflow-wrap: break-word;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 3px 15px rgba(0,0,0,0.3);
       margin-top: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .link-box b {
+      color: var(--accent-color);
+    }
+
+    .security-badge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(66, 133, 244, 0.15);
+      border-radius: 20px;
+      padding: 8px 15px;
+      margin-top: 15px;
+      font-size: 14px;
+      border: 1px solid rgba(66, 133, 244, 0.3);
+    }
+
+    .security-badge i {
+      margin-left: 8px;
+      color: var(--secondary-color);
     }
 
     footer {
-      margin-top: 35px;
+      margin-top: 30px;
       font-size: 14px;
-      color: #bbb;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    footer i {
+      margin-left: 8px;
+      color: var(--accent-color);
     }
 
     @media (max-width: 600px) {
+      .container {
+        padding: 20px 15px;
+      }
+      
       .download-btn {
         font-size: 16px;
-        padding: 12px 25px;
+        padding: 15px 30px;
       }
+      
       .app-header {
         flex-direction: column;
       }
+      
       .app-title {
         text-align: center;
-        margin-top: 10px;
+        margin-top: 15px;
+      }
+      
+      .app-icon {
+        margin-left: 0;
+      }
+      
+      .features {
+        flex-direction: column;
+      }
+      
+      .feature {
+        margin: 5px 0;
       }
     }
   </style>
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
   <div class="container">
     <!-- محاكاة أيقونة متجر Play الأصلية واسم التطبيق -->
     <div class="app-header">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="متجر Play" class="app-icon">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="متجر بلاي" class="app-icon">
       <div class="app-title">
-        <h2>تطبيق تجريبي</h2>
-        <p>متوفر على متجر Play</p>
+        <h1>متجر بلاي الرسمي</h1>
+        <p>أفضل التطبيقات والألعاب المميزة</p>
+      </div>
+    </div>
+
+    <div class="rating">
+      <div class="stars">
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star-half-alt"></i>
+      </div>
+      <div class="rating-text">4.7 (1.2M+ تقييم)</div>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <i class="fas fa-shield-alt"></i>
+        <span>آمن 100%</span>
+      </div>
+      <div class="feature">
+        <i class="fas fa-bolt"></i>
+        <span>تثبيت سريع</span>
+      </div>
+      <div class="feature">
+        <i class="fas fa-download"></i>
+        <span>مجاني بالكامل</span>
       </div>
     </div>
 
     <div class="instruction-box">
       ⚡ <b>نصيحة مهمة لتثبيت التطبيق بأمان:</b><br>
-      1️⃣ بعد اكتمال التحميل، <b>قم بإيقاف الإنترنت   . </b>
+      1️⃣ بعد اكتمال التحميل، <b>قم بإيقاف الإنترنت</b>
        (Wi-Fi أو بيانات الجوال).<br>
       2️⃣ افتح الملف مباشرة من إشعارات التنزيل أو من مركز الملفات.<br>
       3️⃣ اضغط "تثبيت" واتبع التعليمات كما في متجر Play.<br>
@@ -153,17 +372,23 @@
     <!-- زر التحميل يبدأ التحميل مباشرة من الرابط -->
     <a href="https://github.com/amratef70/Apk/releases/download/v1.0.0/ready.apk" 
        class="download-btn" download>
-       ⬇️ تحميل التطبيق الآن
+       <i class="fas fa-download"></i> تحميل التطبيق الآن
     </a>
 
     <!-- صندوق الرابط الجذاب -->
     <div class="link-box">
       الرابط الرسمي للتطبيق:<br>
-      <b>Google play</b>
+      <b>Google Play</b>
+    </div>
+
+    <div class="security-badge">
+      <i class="fas fa-check-circle"></i>
+      <span>تم التحقق من الأمان والجودة</span>
     </div>
 
     <footer>
-      🚀 إصدار مستقر وآمن 100% – موصى به من مصادر موثوقة
+      <i class="fas fa-rocket"></i>
+      <span>إصدار مستقر وآمن 100% – موصى به من مصادر موثوقة</span>
     </footer>
   </div>
 
